@@ -163,11 +163,5 @@ html, body {
   transition: transform 250ms cubic-bezier(0.4, 0, 1, 1) 400ms;
   z-index: 2;
 }
-/* Hide initial thumbnail */
-.icon-offline {/* swap the sprite for your own PNG or GIF */
-  content: url(assets/my-custom-logo.png);
-  width: 64px;          /* size is up to you */
-  height: 64px;
-  position: relative;
-}
+
 
