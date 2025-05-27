@@ -2464,19 +2464,40 @@
         /**
          * Draw the horizon line.
          */
-        draw: function () {
-            this.canvasCtx.drawImage(Runner.imageSprite, this.sourceXPos[0],
-                this.spritePos.y,
-                this.sourceDimensions.WIDTH, this.sourceDimensions.HEIGHT,
-                this.xPos[0], this.yPos,
-                this.dimensions.WIDTH, this.dimensions.HEIGHT);
+       // HorizonLine — draw a ground line that already spans the whole canvas
+draw: function () {
 
-            this.canvasCtx.drawImage(Runner.imageSprite, this.sourceXPos[1],
-                this.spritePos.y,
-                this.sourceDimensions.WIDTH, this.sourceDimensions.HEIGHT,
-                this.xPos[1], this.yPos,
-                this.dimensions.WIDTH, this.dimensions.HEIGHT);
-        },
+  /* first tile */
+  this.canvasCtx.drawImage(
+      Runner.imageSprite,
+      this.sourceXPos[0], this.spritePos.y,
+      this.sourceDimensions.WIDTH, this.sourceDimensions.HEIGHT,
+      this.xPos[0], this.yPos,
+      this.dimensions.WIDTH, this.dimensions.HEIGHT);
+
+  /* second tile */
+  this.canvasCtx.drawImage(
+      Runner.imageSprite,
+      this.sourceXPos[1], this.spritePos.y,
+      this.sourceDimensions.WIDTH, this.sourceDimensions.HEIGHT,
+      this.xPos[1], this.yPos,
+      this.dimensions.WIDTH, this.dimensions.HEIGHT);
+
+  /* ---------- NEW: keep adding tiles until we hit the right edge ---------- */
+  let nextX = this.xPos[1] + this.dimensions.WIDTH;        // start after 2nd tile
+  while (nextX < this.canvas.width) {                      // canvas is full width
+    this.canvasCtx.drawImage(
+        Runner.imageSprite,
+        this.sourceXPos[0],               // reuse flat-ground frame
+        this.spritePos.y,
+        this.sourceDimensions.WIDTH, this.sourceDimensions.HEIGHT,
+        nextX, this.yPos,                 // destination
+        this.dimensions.WIDTH, this.dimensions.HEIGHT);
+
+    nextX += this.dimensions.WIDTH;       // advance to next slot
+  }
+},
+
 
         /**
          * Update the x position of an indivdual piece of the line.
