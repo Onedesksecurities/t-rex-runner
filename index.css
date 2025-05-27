@@ -164,5 +164,10 @@ html, body {
   z-index: 2;
 }
 /* Hide initial thumbnail */
-.icon-offline { display: none !important; }
+.icon-offline {/* swap the sprite for your own PNG or GIF */
+  content: url(assets/my-custom-logo.png);
+  width: 64px;          /* size is up to you */
+  height: 64px;
+  position: relative;
+}
 
