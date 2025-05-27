@@ -15,10 +15,16 @@ html, body {
   display: inline-block;
 }
 
-.icon-offline {
-  content: -webkit-image-set( url(assets/default_100_percent/100-error-offline.png) 1x, url(assets/default_200_percent/200-error-offline.png) 2x);
-  position: relative;
+/* NEW thumbnail sprite – replace my-thumb.png with your file */
+.icon-offline{
+  content: url(assets/my-thumb.png);   /* your custom PNG / GIF */
+  width: 120px;                        /* size is up to you */
+  height: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;                  /* keep original positioning logic */
 }
+
 
 .hidden {
   display: none;
