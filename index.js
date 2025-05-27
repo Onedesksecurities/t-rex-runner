@@ -1570,7 +1570,7 @@
         MIN_JUMP_HEIGHT: 30,
         SPEED_DROP_COEFFICIENT: 3,
         SPRITE_WIDTH: 262,
-        START_X_POS: 50,
+        START_X_POS: 90,
         WIDTH: 44,
         WIDTH_DUCK: 59
     };
